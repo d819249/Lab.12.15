@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Comparison</title>
+    <script>
+        // Global variables to store input values
+        var input1, input2;
+
+        // Function to compare inputs and update the page
+        function compareInputs() {
+            // Prompt user for the first input
+            input1 = prompt("請輸入第一個數字：");
+
+            // Prompt user for the second input
+            input2 = prompt("请請輸入第二個數字：");
+
+            // Convert inputs to numbers
+            input1 = parseFloat(input1);
+            input2 = parseFloat(input2);
+
+            // Get the element to update the result
+            var resultElement = document.getElementById("result");
+
+            // Compare inputs and update the page
+            if (input1 > input2) {
+                // Change background color to lightblue
+                document.body.style.backgroundColor = "lightblue";
+                // Print the result on the screen
+                resultElement.innerHTML = input1 + " > " + input2;
+            } else if (input2 > input1) {
+                // Change background color to orange
+                document.body.style.backgroundColor = "orange";
+                // Print the result on the screen
+                resultElement.innerHTML = input2 + " > " + input1;
+            } else {
+                // Change background color to lightyellow
+                document.body.style.backgroundColor = "lightyellow";
+                // Print the result on the screen
+                resultElement.innerHTML = input1 + " == " + input2;
+            }
+        }
+
+        // Function to show the first input
+        function showInput1() {
+            // Display the first input in the center of the page
+            var centerElement = document.getElementById("center");
+            centerElement.innerHTML = input1;
+        }
+
+        // Function to show the second input
+        function showInput2() {
+            // Display the second input in the center of the page
+            var centerElement = document.getElementById("center");
+            centerElement.innerHTML = input2;
+        }
+    </script>
+    <style>
+        /* Center the content */
+        #center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body onload="compareInputs()">
+    <!-- Result of the comparison will be displayed here -->
+    <p id="result"></p>
+
+    <!-- Buttons to show individual inputs -->
+    <button onclick="showInput1()">顯示第一組數字</button>
+    <button onclick="showInput2()">顯示第二組數字</button>
+
+    <!-- Element to center the displayed numbers -->
+    <div id="center"></div>
+</body>
+</html>
